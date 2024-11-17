@@ -91,8 +91,20 @@
 
         <!-- Quiz Page -->
         <div id="quiz-page" style="display: none;">
-            <h1 class="text-center">Questionnaire</h1>
             <p id="progress" class="text-center">Question <span id="current-question">0</span> / <span id="total-questions">0</span></p>
+
+            <!-- Instruction Text -->
+            <div id="instruction-container" class="text-center mb-4">
+                <p class="fs-4">Voici deux paragraphes, lequel d'entre eux a été écrit par Victor Hugo, à en juger uniquement par le style ?</p>
+                <p class="text-muted fst-italic small">
+                    Veuillez choisir sans effectuer de recherche sur Internet, en vous basant uniquement sur votre jugement du style.
+                    Aucune évaluation ni récompense n’est liée aux réponses, il vous suffit donc de fournir votre meilleure estimation.
+                    Toutes les entités nommées sont intentionnellement masquées dans chaque question.
+                </p>
+                <p class="text-warning small fst-italic">
+                    Certaines entités nommées peuvent être masquées avec la notation [MASQUE].
+                </p>
+            </div>
 
             <div id="question-container" class="mb-4">
                 <p id="question-category" class="text-center" style="display: none"></p>
@@ -111,6 +123,7 @@
                 <button id="next-btn" class="btn btn-primary w-100" disabled>Suivant</button>
             </div>
         </div>
+
 
         <!-- Thank You Page -->
         <div id="thank-you-page" style="display: none;">
@@ -132,6 +145,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
