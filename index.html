@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Victor Hugo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Page -->
+        <div id="welcome-page" class="container">
+            <h1 class="text-center">Écrivain ou Machine ? Détectez le style de Victor Hugo !</h1>
+            <form id="participant-form">
+                <h3>Formulaire de Consentement</h3>
+                <p>
+                    Ce questionnaire s’inscrit dans le cadre d’un projet universitaire visant à évaluer la précision et la crédibilité des textes générés par intelligence artificielle.
+                    Votre participation est entièrement volontaire et non rémunérée.
+                </p>
+                <p>
+                    Conformément aux normes de protection des données, toutes les informations recueillies resteront anonymes et sécurisées et seront conservées pour une durée indéterminée,
+                    afin de permettre des analyses supplémentaires ou de futures recherches.
+                </p>
+                <p>
+                    Les résultats de cette étude pourront être publiés sous forme de rapports, articles scientifiques ou autres publications académiques. En participant, vous acceptez
+                    que vos réponses puissent être partagées publiquement sous un format strictement anonyme et sous forme de synthèses globales, garantissant ainsi le respect de votre vie privée.
+                </p>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="consent" required>
+                    <label for="consent" class="form-check-label">J’accepte de mon plein gré de participer à cette étude.</label>
+                </div>
+
+                <h3>Quelques questions avant de commencer...</h3>
+                <div class="mb-3">
+                    <label for="age">Âge :</label>
+                    <select id="age" class="form-select" required>
+                        <option value="" disabled selected>Choisir votre âge</option>
+                        <option value="17 ans ou moins">17 ans ou moins</option>
+                        <option value="18-20">18-20</option>
+                        <option value="21-29">21-29</option>
+                        <option value="30-39">30-39</option>
+                        <option value="40-49">40-49</option>
+                        <option value="50-59">50-59</option>
+                        <option value="60 ans ou plus">60 ans ou plus</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="education">Niveau d'éducation :</label>
+                    <select id="education" class="form-select" required>
+                        <option value="" disabled selected>Choisir votre niveau d'éducation</option>
+                        <option value="Inférieur au diplôme d'études secondaires">Inférieur au diplôme d'études secondaires</option>
+                        <option value="Diplôme d'études secondaires ou équivalent">Diplôme d'études secondaires ou équivalent</option>
+                        <option value="A fait des études supérieures, mais pas de diplôme">A fait des études supérieures, mais pas de diplôme</option>
+                        <option value="DUT/BTS">DUT/BTS</option>
+                        <option value="Licence">Licence</option>
+                        <option value="Diplôme d’études supérieures (master, doctorat...)">Diplôme d’études supérieures (master, doctorat...)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="familiarity">Connaissance de Victor Hugo :</label>
+                    <select id="familiarity" class="form-select" required>
+                        <option value="" disabled selected>Choisir votre niveau de connaissance de Victor Hugo</option>
+                        <option value="Très familier">Très familier (J'ai lu une bonne partie de ses œuvres)</option>
+                        <option value="Un peu familier">Un peu familier (J'ai lu quelques-unes de ses œuvres)</option>
+                        <option value="Neutre">Neutre (J'ai lu au moins une de ses œuvres)</option>
+                        <option value="Peu familier">Peu familier (Je l'ai étudié au lycée)</option>
+                        <option value="Très peu familier">Très peu familier (Je n'ai jamais lu Hugo)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Avez-vous étudié la littérature française ?</label>
+                    <div class="form-check d-inline-block mr-3">
+                        <input type="radio" id="studied-yes" name="studied" class="form-check-input" value="true" required>
+                        <label for="studied-yes" class="form-check-label">Oui</label>
+                    </div>
+                    <div class="form-check d-inline-block">
+                        <input type="radio" id="studied-no" name="studied" class="form-check-input" value="false" required>
+                        <label for="studied-no" class="form-check-label">Non</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Commencer</button>
+            </form>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" style="display: none;">
+            <h1 class="text-center">Questionnaire</h1>
+            <p id="progress" class="text-center">Question <span id="current-question">0</span> / <span id="total-questions">0</span></p>
+
+            <div id="question-container" class="mb-4">
+                <p id="question-category" class="text-center" style="display: none"></p>
+
+                <div id="question-texts" class="d-flex flex-column flex-md-row gap-4 justify-content-center">
+                    <div class="text-block" id="left-text">
+                        <!-- Left Text will be populated here -->
+                    </div>
+                    <div class="text-block" id="right-text">
+                        <!-- Right Text will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4" id="next-div">
+                <button id="next-btn" class="btn btn-primary w-100" disabled>Suivant</button>
+            </div>
+        </div>
+
+        <!-- Thank You Page -->
+        <div id="thank-you-page" style="display: none;">
+            <div class="thank-you-content text-center p-5">
+                <div class="thank-you-icon mb-4">
+                    <i class="fas fa-trophy fa-5x text-warning animate__animated animate__bounceIn"></i>
+                </div>
+                <h1 class="text-primary mb-3 animate__animated animate__fadeInDown">Merci d'avoir participé !</h1>
+                <p class="mb-4 animate__animated animate__fadeInUp">
+                    Votre participation contribue à une meilleure compréhension des textes générés par intelligence artificielle.
+                    Nous apprécions grandement votre aide !
+                </p>
+                <p class="text-muted mb-4 animate__animated animate__fadeInUp">
+                    Vous pouvez partager ce quiz avec vos amis ou consulter vos réponses pour en savoir plus.
+                </p>
+                <div class="thank-you-buttons d-flex flex-column flex-md-row gap-3 justify-content-center">
+                    <button id="return-btn" class="btn btn-outline-primary animate__animated animate__fadeIn">Retour à l'accueil</button>
+                    <button id="share-btn" class="btn btn-primary animate__animated animate__fadeIn">Partager ce quiz</button>
+                </div>
+            </div>
+        </div>
+    <script src="app.js"></script>
+</body>
+</html>

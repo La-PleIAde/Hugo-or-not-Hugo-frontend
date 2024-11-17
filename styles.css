@@ -1,0 +1,315 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #343a40;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #495057;
+}
+
+select, input[type="checkbox"], input[type="radio"], button {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    width: 100%; /* Default to full width for mobile */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-check-label, label {
+    word-wrap: break-word;
+}
+
+/* Consent Box Styling */
+#consent {
+    margin-right: 10px;
+}
+
+/* Center the content */
+#welcome-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#participant-form p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+#consent + .form-check-label {
+    vertical-align: middle;
+}
+
+#studied-yes, #studied-no {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px; /* Optional spacing */
+}
+
+#studied-yes + label, #studied-no + label {
+    display: inline-block;
+    margin-right: 20px; /* Adjust the spacing between the radio buttons */
+}
+
+/* Question Text Blocks Styling */
+#question-texts {
+    display: flex;
+    gap: 20px; /* Space between the blocks */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+}
+
+#progress {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.text-block {
+    border: 2px solid #ccc;
+    padding: 15px;
+    cursor: pointer;
+    width: 45%; /* Side by side on desktop */
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+}
+
+.text-block:hover {
+    background-color: #f0f0f0;
+    border-color: #aaa;
+}
+
+/* Center everything */
+.text-center {
+    text-align: center;
+}
+
+/* Spacing for containers */
+#question-container {
+    margin: 30px 15px;
+}
+
+/* Question Category */
+#question-category {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Flexbox layout for question texts */
+#question-texts {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Stacks elements on mobile */
+    padding: 10px;
+}
+
+/* Text blocks for choices */
+.text-block {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 45%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.text-block:hover {
+    background-color: #e9f0f7;
+    border-color: #007BFF;
+}
+
+.text-block.selected {
+    background-color: #007BFF;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .text-block {
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 15px;
+    }
+
+    #next-btn {
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+
+#next-div {
+    width: 90%;
+    display: flex;
+    margin: auto;
+}
+
+/* Styling for the Next button */
+#next-btn {
+    margin-top: 20px;
+    padding: 12px 22px;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#next-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Add smooth transitions for text blocks */
+.text-block {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.text-block:hover {
+    transform: scale(1.05);
+}
+
+/* Add focus styles for accessibility */
+.text-block:focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #welcome-page {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    .text-block {
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 10px;
+    }
+
+    #next-btn {
+        width: 100%; /* Full width button on mobile */
+    }
+}
+
+.text-block.selected {
+    background-color: #4CAF50; /* Green when selected */
+    border-color: #388E3C;
+    color: white;
+}
+
+#next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Thank You Page Styling */
+#thank-you-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.thank-you-content {
+    text-align: center;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+.thank-you-icon {
+    color: #ffc107;
+}
+
+.thank-you-buttons button {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.thank-you-buttons button:hover {
+    transform: scale(1.05);
+}
+
+#share-btn {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#share-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Success State */
+.btn-success {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
