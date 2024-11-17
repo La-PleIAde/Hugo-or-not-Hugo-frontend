@@ -70,6 +70,9 @@ document.getElementById('participant-form').addEventListener('submit', async (ev
     document.getElementById('welcome-page').style.display = 'none';
     document.getElementById('quiz-page').style.display = 'block';
 
+    // Scroll to the top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     // Save progress in localStorage
     saveProgress();
     loadQuestion();
@@ -127,6 +130,9 @@ document.getElementById('next-btn').addEventListener('click', async () => {
 
         // Save progress before moving to the next question
         saveProgress();
+
+        // Scroll to the top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Go to next question or finish
         currentQuestionIndex++;
