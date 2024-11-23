@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Fetch questionnaire data from API
 async function fetchQuestions(participantId) {
-    const response = await fetch(`${API_BASE_URL}/questionnaire`, {
+    const response = await fetch(`${API_BASE_URL}/questionnaire/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ participant_id: participantId }),
