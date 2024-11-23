@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://web-production-ee52.up.railway.app/api/v1';
+const API_BASE_URL = 'https://web-production-ee52.up.railway.app/api/v1/participant';
 
 let participantId = null;
 let questions = [];
