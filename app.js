@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// Clear localStorage when the browser window or tab is closed
+window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('quizProgress');
+});
+
 // Fetch questionnaire data from API
 async function fetchQuestions(participantId) {
     const response = await fetch(`${API_BASE_URL}/questionnaire/`, {
@@ -150,7 +155,7 @@ document.getElementById('next-btn').addEventListener('click', async () => {
 document.getElementById('return-btn').addEventListener('click', () => {
     document.getElementById('thank-you-page').style.display = 'none';
     document.getElementById('welcome-page').style.display = 'block';
-    location.reload()
+    location.reload();
 });
 
 document.getElementById('share-btn').addEventListener('click', async () => {
@@ -174,4 +179,3 @@ document.getElementById('share-btn').addEventListener('click', async () => {
         alert('Impossible de copier le lien. Veuillez essayer manuellement.');
     }
 });
-
